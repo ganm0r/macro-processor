@@ -1,0 +1,16 @@
+MACRO
+ABC &a,&b
+LOAD &a
+ADD &b
+MEND
+MACRO
+XYZ &x,&y,&z
+LOAD &x
+ADD &y
+SUB &z
+MULT &y
+MEND
+READ P
+XYZ P,10,20
+ABC 4,5
+END

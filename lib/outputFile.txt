@@ -1,0 +1,55 @@
+Two Pass Macro Processor:
+
+Pass One:
+
+Macro Name Table:
+
+0 ABC 2 0 0
+1 XYZ 3 2 3
+
+Macro Definition Table:
+
+0 LOAD &a
+1 ADD &b
+2 MEND
+3 LOAD &x
+4 ADD &y
+5 SUB &z
+6 MULT &y
+7 MEND
+
+Argument List Array:
+
+ABC #1 &a
+ABC #2 &b
+XYZ #1 &x
+XYZ #2 &y
+XYZ #3 &z
+
+Intermediate Code:
+
+READ P
+XYZ P,10,20
+ABC 4,5
+END
+
+Pass Two:
+
+Updated Argument List Array:
+
+XYZ #1 P
+XYZ #2 10
+XYZ #3 20
+ABC #1 4
+ABC #2 5
+
+Expanded Code:
+
+READ P
+LOAD P
+ADD 10
+SUB 20
+MULT 10
+LOAD 4
+ADD 5
+END
